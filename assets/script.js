@@ -1,8 +1,8 @@
 // Assigning classes and ids
-let timeBlock = $('.time-block');
-let timeDisplayEl = $('#currentDay');
+let timeBlock = $(".time-block");
+let timeDisplayEl = $("#currentDay");
 let textArea = $(".description");
-let btnSave = $('.saveBtn');
+let btnSave = $(".saveBtn");
 
 // Get the local Storage saved input
 let savedText = localStorage.getItem("Input");
@@ -18,20 +18,19 @@ if (savedData !== null) {
 // THE FOR BELOW IS THE SAME AS .EACH ABOVE
 // for (let i = 0; i < savedData.length; i++) {
 //   const element = savedData[i];
-//   textArea[i].val(element) 
+//   textArea[i].val(element)
 // }
-
 
 // Displaying the time
 function displayTime() {
-  let rightNow = dayjs().format('dddd, MMMM D, YYYY h:mm A');
+  let rightNow = dayjs().format("dddd, MMMM D, YYYY h:mm A");
   timeDisplayEl.text(rightNow);
 }
 displayTime();
-setInterval(displayTime, 1000); //60 * 
+setInterval(displayTime, 1000); //60 *
 
-// Get the current hour
-let hour = dayjs().format("H");
+// Get the current hour linked with the if statement below
+let hour = dayjs().format("HH");
 
 // get the current hour from id
 for (let i = 0; i < timeBlock.length; i++) {
@@ -67,10 +66,9 @@ function inputstorage(event) {
 
   let string = JSON.stringify(textValues);
   localStorage.setItem("Input", string);
-
 }
 
-btnSave.on('click', inputstorage);
+btnSave.on("click", inputstorage);
 
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
@@ -80,8 +78,6 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-
-
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
@@ -94,4 +90,3 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
-
